@@ -2,9 +2,8 @@ import ipywidgets as widgets
 import numpy as np
 from ipywidgets import GridspecLayout, Layout, interact, fixed
 from IPython.display import display, Latex, HTML, Markdown
-from .print_functions import *
 from .Gram_Schmidt import InnerProdSpace as GS
-
+import array_to_latex as a2l
 
 gs = None
 inprod_mat = None
@@ -30,6 +29,15 @@ use_matrix = widgets.Checkbox(
 )
 
 out = widgets.Output()
+def print_matrix(np_array_matrix):
+    np_array_matrix = np_array_matrix.round(3)
+    if np.isreal(np_array_matrix).all():
+        np_array_matrix = np_array_matrix.real
+    latex_code = a2l.to_ltx(
+        np_array_matrix, frmt='{:.3}', arraytype='pmatrix', print_out=False)
+    n = latex_code.rfind('\n')
+    latex_code = latex_code[:n] + '\t' + latex_code[n+1:]
+    return latex_code
 
 # Create input widgets
 def init_input(n_dim, m_dim):
