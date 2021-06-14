@@ -137,7 +137,7 @@ def display_result(b):
         if is_basis:
             display(Latex(f'The following is an orthonormal basis for $\\mathbb{{R}}^{n_select.value}$ ' + basis_string))
         else:
-            display(Latex(f'The following is not a basis for $\\mathbb{{R}}^{n_select.value}$ ' + basis_string))
+            display(Latex(f'The following is not a basis for $\\mathbb{{R}}^{n_select.value}$ '))
         
         latex_vecs = r'\begin{Bmatrix}'
         for i in range(result.shape[1]):
