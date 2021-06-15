@@ -86,7 +86,7 @@ We built the coordinate vectors of the items in the span, put them in the
 \begin_inset Formula $V$
 \end_inset
 
- and then used numpy.linalg.qr to get an orthonormal matrix 
+ and then used our code to get an orthonormal matrix 
 \begin_inset Formula $Q$
 \end_inset
 
